@@ -1,19 +1,21 @@
 <h1>新規登録フォーム</h1>
 
 <%= form_for @post, url: { action: :create } do |f| %>
+<div class="form-group">
+<%= f.label "Title" %>
+<%= f.text_field :title, class: "form-control"%>
+</div>
 
-<p>Title:<br>
-<%= f.text_field :title%>
-</p>
+<div class="form-group">
+<%= f.label "Body" %>
+<%= f.text_area :body, class: "form-control"%>
+</div>
 
-<p>Body:<br>
-<%= f.text_area :body%>
-</p>
+<div class="form-group">
+<%= f.label "Category" %>
+<%= f.text_field :category, class: "form-control"%>
+</div>
 
-<p>Category:<br>
-<%= f.text_field :category%>
-</p>
-
-<%= f.submit 'Post' %>
+<%= f.submit 'Post', class: "btn btn-primary"%>
 
 <% end %>

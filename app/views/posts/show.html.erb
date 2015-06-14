@@ -1,4 +1,4 @@
-
+<div class="col-md-12>"
 <p>
 <b>Title:<br>
 <%= @post.title %></b>
@@ -6,7 +6,7 @@
 
 <p>
 <b>Body:<br>
-<%= @post.body %></b>
+<%= simple_format(@post.body) %></b>
 </p>
 
 <p>
@@ -14,5 +14,7 @@
 <%= @post.category %></b>
 </p>
 
-<%= f.submit 'edit' %>
+<%= link_to 'edit', edit_post_path %>
+<%= link_to 'delete', post_path, method: :delete %>
 
+</div>
