@@ -32,9 +32,9 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
-  get 'post/new' => 'posts#new'
-  post 'post' => 'posts#create'
-  get 'post' => 'posts#show'
+  resources :posts
+
+  root 'posts#index'
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
