@@ -1,18 +1,10 @@
 <div class="col-md-12>"
-<p>
-<b>Title:<br>
-<%= @post.title %></b>
-</p>
+<p>Title:<%= @post.title %></b></p>
 
-<p>
-<b>Body:<br>
-<%= simple_format(@post.body) %></b>
-</p>
+<p>Category:<%= find_category_title(@post.category_id) %></p>
+<p>Date of post:<%= @post.created_at %></p>
 
-<p>
-<b>Category:<br>
-<%= @post.category %></b>
-</p>
+<p><%= simple_format(@post.body) %></p>
 
 <%= link_to 'edit', edit_post_path %>
 <%= link_to 'delete', post_path, method: :delete %>
