@@ -19,7 +19,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page])
+    #@posts = Post.page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.page(params[:page])
   end
 
   def edit
