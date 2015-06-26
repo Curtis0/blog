@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_q
 
   def new
     @post = Post.new
@@ -11,11 +12,10 @@ class PostsController < ApplicationController
     # save the user input
     @post.save
     # throw the user input data to show
-    redirect_to :posts
+    redirect_to "/posts/#{@post.id}"
   end
 
   def show
-
   end
 
   def index
@@ -55,5 +55,9 @@ private
     @post = Post.find(params[:id])
   end
 
+  def set_q
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.page(params[:page])
+  end
 
 end

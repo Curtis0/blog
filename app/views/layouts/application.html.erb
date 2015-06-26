@@ -37,7 +37,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/posts/new">投稿する</a></li>
+        <li><a href="/posts/new">New Post</a></li>
+        <% if present? %>
+        <li><%= link_to 'Change Settings', edit_writer_registration_path %></a></li>
+        <li><%= link_to 'Log out', destroy_writer_session_path, method: :delete %></a></li>
+        <% else %>
+        <li><%= link_to 'Sign Up', new_writer_registration_path %></a></li>
+        <li><%= link_to 'Log in', new_writer_session_path %></a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
